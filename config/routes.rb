@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  root controller: :welcome, action: :index
-  resources :articles
+  root controller: :articles, action: :index
+  resources :articles, only: [:new, :create, :show] do 
+    resources :comments
+  end
 end
